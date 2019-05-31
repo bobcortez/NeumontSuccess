@@ -4,7 +4,9 @@
   "description": "Neumont App w/ 2 features at least or whatever",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/bobcortez/NeumontSuccess/issues"
   },
-  "homepage": "https://github.com/bobcortez/NeumontSuccess#readme"
+  "homepage": "https://github.com/bobcortez/NeumontSuccess#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.5.0"
+  }
 }
