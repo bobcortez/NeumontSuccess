@@ -1,0 +1,19 @@
+{
+  "name": "neumont-success",
+  "version": "1.0.0",
+  "description": "Neumont App w/ 2 features at least or whatever",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobcortez/NeumontSuccess.git"
+  },
+  "author": "Team Teamwork",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bobcortez/NeumontSuccess/issues"
+  },
+  "homepage": "https://github.com/bobcortez/NeumontSuccess#readme"
+}
