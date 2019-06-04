@@ -64,8 +64,51 @@ let beautify = code => {
             }
             else {
                 let ignore = false;
-                // Do some logic to determine if we should add a line break
-                //  i.e. the semicolin is between "(" and ")" or a pair of quotes.
+                let startCheckIndex = 0;
+
+                // Check quotes
+                let keepChecking = true;
+                while(keepChecking) {
+                    quoteIndex = tempString.search(/["']/, startCheckIndex);
+                    if(quoteIndex == -1) {
+                        keepChecking = false;
+                    }
+                    else if(quoteIndex < semicolinIndex) {
+                        secondQuoteIndex = tempString.indexOf(tempString.charAt(quoteIndex), quoteIndex + 1);
+                        if (secondQuoteIndex == -1 || secondQuoteIndex > semicolinIndex) {
+                            keepChecking = false;
+                            ignore = true;
+                        }
+                    }
+                }
+
+                let quoteIndex = -1;
+                let parenCount = 0;
+
+                for(x = 0; x < semicolinIndex; x++) {
+                    currentChar = tempString.charAt(x);
+                    
+                    if(quoteIndex != -1) {
+                        if(tempString.charAt(quoteIndex) == currentChar) {
+                            quoteIndes = -1;
+                        }
+                    }
+                    else {
+                        if(currentChar == '(') {
+                            parenCount++;
+                        }
+                        else if(currentChar == ')') {
+                            parenCount--;
+                        }
+                        else if(currentChar == '"' || currentChar == "'") {
+                            quoteIndex = x;
+                        }
+                    }
+                }
+
+                if(parenCount != 0) {
+                    ignore = true;
+                }
     
                 if(!ignore) {
                     codeBucket += tempString.substring(0, semicolinIndex + 1) + lineTerminator;
@@ -74,7 +117,7 @@ let beautify = code => {
             }
         }
 
-        // **Adding Tabs** //
+        // **Adding tabs in** //
 
         let prettyCode = "";
         let tabs = 0;
@@ -87,16 +130,17 @@ let beautify = code => {
 
             // If there is a "{" in the line and no "}" following it:
             if(openIndex != -1 && closeIndex > openIndex) {
-                prettyCode += previxTabs(codeBucket[x], tabs);
+                prettyCode += prefixTabs(codeBucket[x], tabs);
                 tabs++;
             }
             // If there is a "}" and no "{" before it
             else if (closeIndex != 0) {
                 tabs--;
-                prettyCode += previxTabs(codeBucket[x], tabs);
+                prettyCode += prefixTabs(codeBucket[x], tabs);
             }
+            // If neither of the above
             else {
-                prettyCode += previxTabs(codeBucket[x], tabs);
+                prettyCode += prefixTabs(codeBucket[x], tabs);
             }
         }
     }
