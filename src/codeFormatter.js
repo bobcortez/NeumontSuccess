@@ -148,4 +148,4 @@ let beautify = code => {
     return prettyCode;
 }
 
-export {buildFormatterHtml};
+export {buildFormatterHtml, beautify};
