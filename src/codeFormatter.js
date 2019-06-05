@@ -1,4 +1,6 @@
 let sampleCode = "for(x = 0; x < semicolinIndex; x++) {\ncurrentChar = tempString.charAt(x);\n\nif(quoteIndex != -1) {\nif(tempString.charAt(quoteIndex) == currentChar) {\nquoteIndes = -1;\n}\n}\nelse {\nif(currentChar == '(') {\nparenCount++;\n}\nelse if(currentChar == ')') {\nparenCount--;\n}\nelse if(currentChar == '\"' || currentChar == \"'\") {quoteIndex = x;\n}\n}\n}";
+let tab = "\t";
+let newline = "\n"
 
 let test = () => {
     console.log("Formatting code:")
@@ -16,8 +18,6 @@ let buildFormatterHtml = () => {
     html.id = "codeFormatter";
     return html;
 }
-let tab = "\t";
-let newline = "\n"
 
 let prefixTabs = (string, numTabs) => {
     for(let x = 0; x < numTabs; x++) {
@@ -186,4 +186,12 @@ let beautify = code => {
     return prettyCode;
 }
 
-export {buildFormatterHtml, beautify};
+let formatCode = () => {
+    let input = document.getElementById("codeFormatterInput");
+    let inString = input.text;
+
+    let outString = beautify(inString);
+    input.text = outString;
+}
+
+export {buildFormatterHtml, formatCode};
