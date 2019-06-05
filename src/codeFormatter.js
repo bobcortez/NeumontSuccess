@@ -16,6 +16,16 @@ let test = () => {
 let buildFormatterHtml = () => {
     let html = document.createElement("div");
     html.id = "codeFormatter";
+
+    let form = document.createElement("input");
+    form.id = "codeFormatterInput";
+
+    let button = document.createElement("button");
+    button.onclick = "formatCode()";
+
+    html.appendChild(form);
+    html.appendChild(button);
+
     return html;
 }
 
