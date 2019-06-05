@@ -1,4 +1,4 @@
-let sampleCode = "for(x = 0; x < semicolinIndex; x++) {\ncurrentChar = tempString.charAt(x);\n\nif(quoteIndex != -1) {\nif(tempString.charAt(quoteIndex) == currentChar) {\nquoteIndes = -1;\n}\n}\nelse {\nif(currentChar == '(') {\nparenCount++;\n}\nelse if(currentChar == ')') {\nparenCount--;\n}\nelse if(currentChar == '\"' || currentChar == \"'\") {quoteIndex = x;\n}\n}\n}";
+let sampleCode = "for(x = 0; x < semicolinIndex; x++) {currentChar = tempString.charAt(x);if(quoteIndex != -1) {if(tempString.charAt(quoteIndex) == currentChar) {quoteIndes = -1;}}else {if(currentChar == '(') {parenCount++;}else if(currentChar == ')') {parenCount--;}else if(currentChar == '\"' || currentChar == \"'\") {quoteIndex = x;}}}";
 let tab = "\t";
 let newline = "\n"
 
@@ -34,6 +34,8 @@ let buildFormatterHtml = () => {
     html.appendChild(button);
     html.appendChild(output_area);
 
+    test();
+
     return html;
 }
 
@@ -46,6 +48,9 @@ let prefixTabs = (string, numTabs) => {
 }
 
 let beautify = code => {
+    if(typeof code !== "string") {
+        return "ERROR: INPUT NOT VALID.";
+    }
     let workingString = code;
     let codeBucket = "";
 
@@ -80,7 +85,9 @@ let beautify = code => {
         else {
             carryOn = false;
         }
-    } 
+    }
+
+    workingString = workingString.replace(/[^\n]}/g, "\n}");
 
     let cutoff = 0;
     let tempString = "";
