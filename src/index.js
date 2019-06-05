@@ -5,7 +5,5 @@ let body = document.getElementById("app");
 //Figure out NavLink stuff
 let navLinks = [];
 
-
-
-body.appendChild(tracker.buildTrackerHtml());
-body.appendChild(code.buildFormatterHtml());
+html.appendChild(tracker.buildTrackerHtml());
+html.appendChild(code.buildFormatterHtml());
