@@ -163,6 +163,8 @@ const updateAssignments = () => {
 }
 
 const editSelectedAssignment = evt => {
+  clearForm();
+  
   let name = document.getElementById("name");
   let desc = document.getElementById("desc");
   let date = document.getElementById("date");
