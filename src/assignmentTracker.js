@@ -1,4 +1,4 @@
-export const contents = `
+const contents = `
   <h2>Assignment Tracker</h2>
   <div class="btn" id="displayAssignmentsBtn">Display Assignments</div>   
   <div id="displayAssignments">I are Test!</div>
@@ -23,7 +23,7 @@ export const contents = `
   </form>
 `;
 
-export class Assignement {
+class Assignement {
   constructor(name, desc, dueDate, requirements) {
     this.name = name;
     this.desc = desc;
@@ -32,7 +32,7 @@ export class Assignement {
   }
 }
 
-export let assignments = [];
+let assignments = [];
 
 export const setup = div_container => {
   div_container.innerHTML = contents;
@@ -42,7 +42,7 @@ export const setup = div_container => {
   document.getElementById("addNewAssignment").addEventListener("click", displayAddAssignment);
 }
 
-export const addMoreReqs = () => {
+const addMoreReqs = () => {
   let reqHolder = document.getElementById("reqHolder");
 
   let reqInput = document.createElement("input");
@@ -51,7 +51,7 @@ export const addMoreReqs = () => {
   reqHolder.appendChild(reqInput);
 }
 
-export const addAssignment = () => {
+const addAssignment = () => {
   let name = document.getElementById("name").value;
   let desc = document.getElementById("desc").value;
   let date = document.getElementById("date").value;
@@ -65,14 +65,14 @@ export const addAssignment = () => {
   let assignment = new Assignement(name, desc, date, requirements);
 
   let ifAssignmentExists = false;
-  for(let x = 0; x < assignments.length; x++) {
-    if(assignments[x].name == assignment.name) {
+  for (let x = 0; x < assignments.length; x++) {
+    if (assignments[x].name == assignment.name) {
       assignments[x] = assignment;
       ifAssignmentExists = true;
     }
   }
 
-  if(!ifAssignmentExists) {
+  if (!ifAssignmentExists) {
     assignments.push(assignment);
   }
 
@@ -80,8 +80,8 @@ export const addAssignment = () => {
   updateAssignments();
 }
 
-export let displayBool = false;
-export const displayAssignments = () => {
+let displayBool = false;
+const displayAssignments = () => {
   let displayAll = document.getElementById("displayAssignments");
 
   switch (displayBool) {
@@ -98,8 +98,8 @@ export const displayAssignments = () => {
   updateAssignments();
 }
 
-export let addBool = false;
-export const displayAddAssignment = () => {
+let addBool = false;
+const displayAddAssignment = () => {
   let displayAdd = document.getElementById("addAssignmentForm");
 
   switch (addBool) {
@@ -115,7 +115,7 @@ export const displayAddAssignment = () => {
   }
 }
 
-export const clearForm = () => {
+const clearForm = () => {
   let name = document.getElementById("name");
   let desc = document.getElementById("desc");
   let date = document.getElementById("date");
@@ -132,12 +132,13 @@ export const clearForm = () => {
   req.innerHTML = '<input type="text" class="reqs">';
 }
 
-export const updateAssignments = () => {
+const updateAssignments = () => {
   let allAssignments = document.getElementById("displayAssignments");
   allAssignments.innerHTML = "";
 
   for (let x = 0; x < assignments.length; x++) {
     let assignmentHolder = document.createElement("div");
+    assignmentHolder.setAttribute("class", "itemBox");
 
     let assignment = document.createElement("label");
     assignment.innerHTML = assignments[x].name;
@@ -165,7 +166,7 @@ export const updateAssignments = () => {
 
 const editSelectedAssignment = evt => {
   clearForm();
-  
+
   let name = document.getElementById("name");
   let desc = document.getElementById("desc");
   let date = document.getElementById("date");
@@ -192,7 +193,7 @@ const editSelectedAssignment = evt => {
   }
 }
 
-export const deleteSelectedAssignment = evt => {
+const deleteSelectedAssignment = evt => {
   let index = assignments[evt.target.id];
   let removeIndex = assignments.indexOf(index);
 
@@ -204,8 +205,8 @@ export const deleteSelectedAssignment = evt => {
 }
 
 export const buildTrackerHtml = () => {
-	let node = document.createElement("div");
-	node.id = "assignTracker";
-	node.innerHTML = contents;
-	return node;
+  let node = document.createElement("div");
+  node.id = "assignTracker";
+  node.innerHTML = contents;
+  return node;
 }
