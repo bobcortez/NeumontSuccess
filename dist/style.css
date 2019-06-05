@@ -13,6 +13,25 @@ body{
     flex-direction: column;
 }
 
+.itemBox {
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 1px;
+    background: #f1e6a6;
+    box-shadow: 5px 5px 2px grey;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.itemBox label{
+    font-weight: bold;
+}
+
+.itemBox label .btn{
+    padding: 5px 10px!important;
+    font-weight: 100!important;
+}
+
 .btn {
     border: 1px solid black;
     border-radius: 10px;
