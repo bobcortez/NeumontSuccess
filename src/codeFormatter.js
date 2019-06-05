@@ -1,4 +1,4 @@
-let sampleCode = "for(x = 0; x < semicolinIndex; x++) {\ncurrentChar = tempString.charAt(x);\n\nif(quoteIndex != -1) {\nif(tempString.charAt(quoteIndex) == currentChar) {\nquoteIndes = -1;\n}\n}\nelse {\nif(currentChar == '(') {\nparenCount++;\n}\nelse if(currentChar == ')') {\nparenCount--;\n}\nelse if(currentChar == '\"' || currentChar == \"'\") {quoteIndex = x;\n}\n}\n}";
+let sampleCode = "for(x = 0; x < semicolinIndex; x++) {currentChar = tempString.charAt(x);if(quoteIndex != -1) {if(tempString.charAt(quoteIndex) == currentChar) {quoteIndes = -1;}}else {if(currentChar == '(') {parenCount++;}else if(currentChar == ')') {parenCount--;}else if(currentChar == '\"' || currentChar == \"'\") {quoteIndex = x;}}}";
 let tab = "\t";
 let newline = "\n"
 
@@ -17,14 +17,27 @@ let buildFormatterHtml = () => {
     let html = document.createElement("div");
     html.id = "codeFormatter";
 
+    let head = document.createElement("h2");
+    head.id = "header2";
+    head.innerText = "Code Formatter"
+
     let form = document.createElement("input");
     form.id = "codeFormatterInput";
 
     let button = document.createElement("button");
-    button.onclick = "formatCode()";
+    button.id = "otherBtn";
+    button.innerText = "Format Code"
+    button.addEventListener("click", formatCode);
 
+    let output_area = document.createElement("textarea");
+    output_area.id = "output_box";
+    output_area.rows = 25;
+    output_area.cols = 90;
+
+    html.appendChild(head);
     html.appendChild(form);
     html.appendChild(button);
+    html.appendChild(output_area);
 
     return html;
 }
@@ -38,6 +51,9 @@ let prefixTabs = (string, numTabs) => {
 }
 
 let beautify = code => {
+    if(typeof code !== "string") {
+        return "ERROR: INPUT NOT VALID.";
+    }
     let workingString = code;
     let codeBucket = "";
 
@@ -72,7 +88,9 @@ let beautify = code => {
         else {
             carryOn = false;
         }
-    } 
+    }
+
+    workingString = workingString.replace(/[^\n]}/g, "\n}");
 
     let cutoff = 0;
     let tempString = "";
@@ -197,11 +215,13 @@ let beautify = code => {
 }
 
 let formatCode = () => {
+    console.log('clicked format');
     let input = document.getElementById("codeFormatterInput");
-    let inString = input.text;
+    let output = document.getElementById("output_box");
+    let inString = input.value;
 
     let outString = beautify(inString);
-    input.text = outString;
+    output.value = outString;
 }
 
 export {buildFormatterHtml, formatCode};

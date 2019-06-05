@@ -1,4 +1,5 @@
-const contents = `
+export const contents = `
+  <h2>Assignment Tracker</h2>
   <div class="btn" id="displayAssignmentsBtn">Display Assignments</div>   
   <div id="displayAssignments">I are Test!</div>
 
@@ -22,7 +23,7 @@ const contents = `
   </form>
 `;
 
-class Assignement {
+export class Assignement {
   constructor(name, desc, dueDate, requirements) {
     this.name = name;
     this.desc = desc;
@@ -31,7 +32,7 @@ class Assignement {
   }
 }
 
-let assignments = [];
+export let assignments = [];
 
 export const setup = div_container => {
   div_container.innerHTML = contents;
@@ -41,7 +42,7 @@ export const setup = div_container => {
   document.getElementById("addNewAssignment").addEventListener("click", displayAddAssignment);
 }
 
-const addMoreReqs = () => {
+export const addMoreReqs = () => {
   let reqHolder = document.getElementById("reqHolder");
 
   let reqInput = document.createElement("input");
@@ -50,7 +51,7 @@ const addMoreReqs = () => {
   reqHolder.appendChild(reqInput);
 }
 
-const addAssignment = () => {
+export const addAssignment = () => {
   let name = document.getElementById("name").value;
   let desc = document.getElementById("desc").value;
   let date = document.getElementById("date").value;
@@ -79,8 +80,8 @@ const addAssignment = () => {
   updateAssignments();
 }
 
-let displayBool = false;
-const displayAssignments = () => {
+export let displayBool = false;
+export const displayAssignments = () => {
   let displayAll = document.getElementById("displayAssignments");
 
   switch (displayBool) {
@@ -97,8 +98,8 @@ const displayAssignments = () => {
   updateAssignments();
 }
 
-let addBool = false;
-const displayAddAssignment = () => {
+export let addBool = false;
+export const displayAddAssignment = () => {
   let displayAdd = document.getElementById("addAssignmentForm");
 
   switch (addBool) {
@@ -114,7 +115,7 @@ const displayAddAssignment = () => {
   }
 }
 
-const clearForm = () => {
+export const clearForm = () => {
   let name = document.getElementById("name");
   let desc = document.getElementById("desc");
   let date = document.getElementById("date");
@@ -131,7 +132,7 @@ const clearForm = () => {
   req.innerHTML = '<input type="text" class="reqs">';
 }
 
-const updateAssignments = () => {
+export const updateAssignments = () => {
   let allAssignments = document.getElementById("displayAssignments");
   allAssignments.innerHTML = "";
 
@@ -191,7 +192,7 @@ const editSelectedAssignment = evt => {
   }
 }
 
-const deleteSelectedAssignment = evt => {
+export const deleteSelectedAssignment = evt => {
   let index = assignments[evt.target.id];
   let removeIndex = assignments.indexOf(index);
 
@@ -200,4 +201,11 @@ const deleteSelectedAssignment = evt => {
   }
 
   updateAssignments();
+}
+
+export const buildTrackerHtml = () => {
+	let node = document.createElement("div");
+	node.id = "assignTracker";
+	node.innerHTML = contents;
+	return node;
 }
