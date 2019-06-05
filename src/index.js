@@ -19,8 +19,9 @@ const buildLink = element => {
 
 navLinks.forEach(buildLink);
 
-body.appendChild(nav);
-body.appendChild(tracker.buildTrackerHtml());
-tracker.setup;
+let assignmentTracker = document.createElement("div");
+assignmentTracker.id = "assignmentTracker";
+body.appendChild(assignmentTracker);
 
+tracker.setup(assignmentTracker);
 body.appendChild(code.buildFormatterHtml());
