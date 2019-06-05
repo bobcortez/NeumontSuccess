@@ -21,10 +21,18 @@ let buildFormatterHtml = () => {
     form.id = "codeFormatterInput";
 
     let button = document.createElement("button");
-    button.onclick = "formatCode()";
+    button.id = "otherBtn";
+    button.innerText = "Format Code"
+    button.addEventListener("click", formatCode);
+
+    let output_area = document.createElement("textarea");
+    output_area.id = "output_box";
+    output_area.rows = 25;
+    output_area.cols = 90;
 
     html.appendChild(form);
     html.appendChild(button);
+    html.appendChild(output_area);
 
     return html;
 }
@@ -197,11 +205,13 @@ let beautify = code => {
 }
 
 let formatCode = () => {
+    console.log('clicked format');
     let input = document.getElementById("codeFormatterInput");
+    let output = document.getElementById("output_box");
     let inString = input.text;
 
     let outString = beautify(inString);
-    input.text = outString;
+    output.value = outString;
 }
 
 export {buildFormatterHtml, formatCode};
