@@ -1,4 +1,5 @@
 export const contents = `
+  <h2>Assignment Tracker</h2>
   <div class="btn" id="displayAssignmentsBtn">Display Assignments</div>   
   <div id="displayAssignments">I are Test!</div>
 

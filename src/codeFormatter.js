@@ -17,6 +17,10 @@ let buildFormatterHtml = () => {
     let html = document.createElement("div");
     html.id = "codeFormatter";
 
+    let head = document.createElement("h2");
+    head.id = "header2";
+    head.innerText = "Code Formatter"
+
     let form = document.createElement("input");
     form.id = "codeFormatterInput";
 
@@ -30,11 +34,10 @@ let buildFormatterHtml = () => {
     output_area.rows = 25;
     output_area.cols = 90;
 
+    html.appendChild(head);
     html.appendChild(form);
     html.appendChild(button);
     html.appendChild(output_area);
-
-    test();
 
     return html;
 }
@@ -215,7 +218,7 @@ let formatCode = () => {
     console.log('clicked format');
     let input = document.getElementById("codeFormatterInput");
     let output = document.getElementById("output_box");
-    let inString = input.text;
+    let inString = input.value;
 
     let outString = beautify(inString);
     output.value = outString;
