@@ -158,7 +158,7 @@ const updateAssignments = () => {
     assignmentName.innerHTML = assignments[x].name;
 
     let assignmentDue = document.createElement("p");
-    assignmentDue.innerHTML = assignments[x].dueDate;
+    assignmentDue.innerHTML = "Due Date: " + assignments[x].dueDate;
 
     assignmentHeader.appendChild(assignmentName);
     assignmentHeader.appendChild(assignmentDue);
@@ -177,7 +177,7 @@ const updateAssignments = () => {
 
     for (let y = 0; y < assignments[x].requirements.length; y++) {
       let req = document.createElement("p");
-      req.innerHTML = assignments[x].requirements[y];
+      req.innerHTML = "&#10070; " + assignments[x].requirements[y];
       assignmentReqs.appendChild(req);
     }
 

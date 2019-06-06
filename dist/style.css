@@ -17,6 +17,10 @@ body{
     flex-direction: column;
 }
 
+#main_text{
+    margin-right: 15px;
+}
+
 .itemBox {
     width: 90%;
     border: 1px solid black;
