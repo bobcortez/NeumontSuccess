@@ -12,7 +12,7 @@ let home_head_txt = document.createTextNode("Useful Applications!");
 home_head.appendChild(home_head_txt);
 //Home Flavor Text
 let home_p = document.createElement("p");
-let home_p_txt = document.createTextNode("Welcome to the Neumont Useful Applications Website! Here we have a selection of 2 useful apps that could help you in your day to day life at Neumont College of Computer Science. Please, help yourself to using these applications whenever you would like to use them. And now I'ma add Lorem Ipsum because I don't like all this white space.");
+let home_p_txt = document.createTextNode("Welcome to the Neumont Useful Applications Website! Here we have a selection of 2 useful apps that could help you in your day to day life at Neumont College of Computer Science. Please, help yourself to using these applications whenever you would like to use them. These tools being an Assignment Tracker that will make a sticky note of each assignment you have to do, where you list off the description and the requirements for the assignment. As well as, a Code Formatter that will take a string of Code and format it into something more 'Beautiful' for you to use.");
 home_p.appendChild(home_p_txt);
 
 home_page.appendChild(home_head);
