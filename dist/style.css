@@ -125,6 +125,11 @@ body{
     display: block!important;
 }
 
+.assignmentHeader {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #displayAssignmentsBtn{
     display: none!important;
 }
@@ -138,7 +143,7 @@ body{
 }
 
 .assignmentReqs{
-    border: 0.3px solid black;
+    border-bottom: 1px solid black;
 }
 
 .assignmentDetails {
