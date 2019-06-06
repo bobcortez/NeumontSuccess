@@ -140,8 +140,52 @@ const updateAssignments = () => {
     let assignmentHolder = document.createElement("div");
     assignmentHolder.setAttribute("class", "itemBox");
 
-    let assignment = document.createElement("label");
-    assignment.innerHTML = assignments[x].name;
+    //Assignment Header
+    let assignmentHeader = document.createElement("div");
+    assignmentHeader.setAttribute("class", "assignmentHeader");
+
+    let showDetails = document.createElement("div");
+    showDetails.innerHTML = "Details"
+    showDetails.id = x;
+    showDetails.setAttribute("class", "btn");
+    showDetails.addEventListener("click", displayAssignmentDetails);
+    
+    let assignmentName = document.createElement("p");
+    assignmentName.innerHTML = assignments[x].name;
+
+    let assignmentDue = document.createElement("p");
+    assignmentDue.innerHTML = assignments[x].dueDate;
+
+    assignmentHeader.appendChild(assignmentName);
+    assignmentHeader.appendChild(assignmentDue);
+    assignmentHeader.appendChild(showDetails);
+    //
+
+    //Assignment Details
+    let assignmentDetails = document.createElement("div");
+    assignmentDetails.setAttribute("class", "assignmentDetails");
+
+    let assignmentDesc = document.createElement("div");
+    assignmentDesc.innerHTML = assignments[x].desc;
+
+    let assignmentReqs = document.createElement("div");
+    assignmentReqs.setAttribute("class", "assignmentReqs");
+
+    for (let y = 0; y < assignments[x].requirements.length; y++) {
+      let req = document.createElement("p");
+      req.innerHTML = assignments[x].requirements[y];
+      assignmentReqs.appendChild(req);
+    }
+    
+    assignmentDetails.appendChild(assignmentDesc);
+    assignmentDetails.appendChild(assignmentReqs);
+
+    assignmentHeader.appendChild(assignmentDetails);
+    //
+
+    //Btns
+    let btnHolder = document.createElement("div");
+    btnHolder.setAttribute("class", "btnHolder");
 
     let editAssignment = document.createElement("div");
     editAssignment.innerHTML = "Edit";
@@ -155,10 +199,12 @@ const updateAssignments = () => {
     deleteAssignment.setAttribute("class", "btn");
     deleteAssignment.addEventListener("click", deleteSelectedAssignment);
 
-    assignment.appendChild(editAssignment);
-    assignment.appendChild(deleteAssignment);
+    btnHolder.appendChild(editAssignment);
+    btnHolder.appendChild(deleteAssignment);
+    //
 
-    assignmentHolder.appendChild(assignment);
+    assignmentHolder.appendChild(assignmentHeader);
+    assignmentHolder.appendChild(btnHolder);
 
     allAssignments.appendChild(assignmentHolder);
   }
@@ -202,6 +248,23 @@ const deleteSelectedAssignment = evt => {
   }
 
   updateAssignments();
+}
+
+let detailBool = false;
+const displayAssignmentDetails = evt => {
+  let details = document.getElementsByClassName("assignmentDetails");
+  let selected = details[evt.target.id];
+
+  switch (detailBool) {
+    case false:
+      selected.style.display = "block";
+      detailBool = true;
+      break;
+    case true:
+      selected.style.display = "none";
+      detailBool = false;
+      break;
+  }
 }
 
 export const buildTrackerHtml = () => {

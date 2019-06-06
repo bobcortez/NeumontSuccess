@@ -96,6 +96,10 @@ body{
     display: none;
 }
 
+.assignmentDetails {
+    display: none;
+}
+
 #navbar {
     list-style-type: none;
     margin: 0;
