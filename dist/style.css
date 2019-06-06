@@ -35,7 +35,7 @@ body{
     font-weight: 100!important;
 }
 
-.btnHolder{
+.btnHolder, .btn-hold{
     display: flex;
     flex-direction: row;
 }
@@ -104,15 +104,17 @@ body{
 }
 
 #codeFormatterInput {
-    height: 27px;
-    font-size: 20px;
+    font-size: 22px;
+    height: 150px;
+    width: 75%;
 }
 
 #output_box {
     border: 1px solid black;
     border-radius: 3px;
-    font-size: 14px;
-    width: 80%;
+    font-size: 12px;
+    width: 90%;
+    margin-bottom: 20px;
 }
 
 #displayAssignments {
@@ -125,6 +127,14 @@ body{
 
 #addAssignmentForm {
     display: none;
+    border: 1px solid black;
+    background-color: #c9c9c9;
+    padding: 8px;
+    margin: 5px 20px 30px 20px;
+}
+
+.assignmentReqs{
+    border: 0.3px solid black;
 }
 
 .assignmentDetails {
@@ -138,6 +148,8 @@ body{
     overflow: hidden;
     background-color: #2C2A2B!important;
     color: white;
+    display: flex;
+    flex-direction: row;
 }
 
 #navbar li {
@@ -155,4 +167,23 @@ body{
     background-color: #413d3f;
     color: white;
     cursor: pointer;
+}
+
+@media all and (max-width: 476px) {
+    #addAssignmentForm{
+        width: 90%;
+        margin: 5px 0px 30px 0px;
+    }
+
+    #name, #desc, .reqs{
+        width: 96%;
+    }
+
+    #navbar{
+        flex-direction: column;
+    }
+
+    #navbar li{
+        padding: 12px 26px;
+    }
 }

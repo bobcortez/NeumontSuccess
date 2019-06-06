@@ -3,7 +3,7 @@ const contents = `
   <div class="btn" id="displayAssignmentsBtn">Display Assignments</div>   
   <div id="displayAssignments"></div>
 
-  <div class="btn" id="addNewAssignment">Add New Assignment</div>   
+  <div class="btn" id="addNewAssignment">+ New Assignment</div>   
   <form id="addAssignmentForm">
     <label class="assingmentLables">Assingment Name: <input type="text" id="name"></label>
     <br>
@@ -15,10 +15,11 @@ const contents = `
       <div id="reqHolder">
         <input type="text" class="reqs">
       </div>
-    </label>
-    <div class="btn" id="addReq">+ Add Req.</div>   
-    <br>
-    <div class="btn" id="addAssignment">Add Assignment</div>   
+	</label>
+	<div class="btn-hold">
+		<div class="btn" id="addReq">+ Add Req.</div>   
+		<div class="btn" id="addAssignment">Submit</div> 
+	</div>  
   </form>
 `;
 

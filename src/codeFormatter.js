@@ -1,3 +1,9 @@
+/**
+ * Sample Code for showcase:
+ * for(x = 0; x < semicolinIndex; x++) {currentChar = tempString.charAt(x);if(quoteIndex != -1) {if(tempString.charAt(quoteIndex) == currentChar) {quoteIndes = -1;}}else {if(currentChar == '(') {parenCount++;}else if(currentChar == ')') {parenCount--;}else if(currentChar == '\"' || currentChar == \"'\") {quoteIndex = x;}}}
+ * 
+ */
+
 let sampleCode = "for(x = 0; x < semicolinIndex; x++) {currentChar = tempString.charAt(x);if(quoteIndex != -1) {if(tempString.charAt(quoteIndex) == currentChar) {quoteIndes = -1;}}else {if(currentChar == '(') {parenCount++;}else if(currentChar == ')') {parenCount--;}else if(currentChar == '\"' || currentChar == \"'\") {quoteIndex = x;}}}";
 let tab = "\t";
 let newline = "\n"
@@ -21,7 +27,7 @@ let buildFormatterHtml = () => {
     head.id = "header2";
     head.innerText = "Code Formatter"
 
-    let form = document.createElement("input");
+    let form = document.createElement("textarea");
     form.id = "codeFormatterInput";
 
     let button = document.createElement("button");
