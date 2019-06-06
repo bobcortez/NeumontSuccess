@@ -5,13 +5,13 @@ const contents = `
 
   <div class="btn" id="addNewAssignment">+ New Assignment</div>   
   <form id="addAssignmentForm">
-    <label class="assingmentLables">Assingment Name: <input type="text" id="name"></label>
+    <label class="assignmentLables">Assignment Name: <input type="text" id="name"></label>
     <br>
-    <label class="assingmentLables">Assingment Desc.: <input type="text" id="desc"></label>
+    <label class="assignmentLables">Assignment Desc.: <input type="text" id="desc"></label>
     <br>
-    <label class="assingmentLables">Due Date: <input type="date" id="date"></label>
+    <label class="assignmentLables">Due Date: <input type="date" id="date"></label>
     <br>
-    <label class="assingmentLables">Requirements: 
+    <label class="assignmentLables">Requirements: 
       <div id="reqHolder">
         <input type="text" class="reqs">
       </div>

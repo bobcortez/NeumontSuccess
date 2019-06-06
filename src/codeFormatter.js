@@ -29,6 +29,7 @@ let buildFormatterHtml = () => {
 
     let form = document.createElement("textarea");
     form.id = "codeFormatterInput";
+    form.placeholder = "Input code to be formatted here."
 
     let button = document.createElement("button");
     button.id = "otherBtn";
@@ -37,6 +38,7 @@ let buildFormatterHtml = () => {
 
     let output_area = document.createElement("textarea");
     output_area.id = "output_box";
+    output_area.placeholder = "Formatted code output here."
     output_area.rows = 25;
     output_area.cols = 90;
 
@@ -224,8 +226,8 @@ let formatCode = () => {
     console.log('clicked format');
     let input = document.getElementById("codeFormatterInput");
     let output = document.getElementById("output_box");
-    let inString = input.value;
 
+    let inString = input.value;
     let outString = beautify(inString);
     output.value = outString;
 }
