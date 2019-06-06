@@ -70,6 +70,7 @@ let assignmentTracker = document.createElement("div");
 assignmentTracker.id = "assignmentTracker";
 body.appendChild(assignmentTracker);
 tracker.setup(assignmentTracker);
+tracker.loadLocalStorage();
 
 //Code Formatter
 body.appendChild(code.buildFormatterHtml());

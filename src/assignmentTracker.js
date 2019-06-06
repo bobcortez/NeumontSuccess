@@ -79,7 +79,7 @@ const addAssignment = () => {
   updateAssignments();
 }
 
-let displayBool = true;
+let displayBool = false;
 const displayAssignments = () => {
   let displayAll = document.getElementById("displayAssignments");
 
@@ -149,7 +149,7 @@ const updateAssignments = () => {
     showDetails.setAttribute("class", "btn");
     showDetails.setAttribute("class", "deatsBtn");
     showDetails.addEventListener("click", displayAssignmentDetails);
-    
+
     let assignmentName = document.createElement("h4");
     assignmentName.innerHTML = assignments[x].name;
 
@@ -176,7 +176,7 @@ const updateAssignments = () => {
       req.innerHTML = assignments[x].requirements[y];
       assignmentReqs.appendChild(req);
     }
-    
+
     assignmentDetails.appendChild(assignmentDesc);
     assignmentDetails.appendChild(assignmentReqs);
 
@@ -208,6 +208,8 @@ const updateAssignments = () => {
 
     allAssignments.appendChild(assignmentHolder);
   }
+
+  localStorage.setItem('assignments', JSON.stringify(assignments));
 }
 
 const editSelectedAssignment = evt => {
@@ -264,6 +266,20 @@ const displayAssignmentDetails = evt => {
       selected.style.display = "none";
       detailBool = false;
       break;
+  }
+}
+
+export const loadLocalStorage = () => {
+  let storage = JSON.parse(localStorage.getItem('assignments'));
+
+  if (storage != null) {
+    assignments = storage;
+  }
+
+  if (assignments != [] || assignments != null) {
+    displayBool = true;
+    document.getElementById("displayAssignments").style.display = "block";
+    updateAssignments();
   }
 }
 
