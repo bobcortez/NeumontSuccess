@@ -76,6 +76,9 @@ const addAssignment = () => {
     assignments.push(assignment);
   }
 
+  document.getElementById("addAssignmentForm").style.display = "none";
+  addBool = false;
+
   clearForm();
   updateAssignments();
 }
