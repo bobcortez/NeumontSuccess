@@ -1,11 +1,14 @@
 html, body{ 
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 body{
     font-family: 'Roboto', sans-serif;
-    background: #a7a7a7;
+    background-image: linear-gradient(to bottom right, #a7a7a7, #8b8787);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #codeFormatter, #assignmentTracker, #main_text{
@@ -29,8 +32,31 @@ body{
 }
 
 .itemBox label .btn{
-    padding: 5px 10px!important;
     font-weight: 100!important;
+}
+
+.btnHolder{
+    display: flex;
+    flex-direction: row;
+}
+
+.btnHolder .btn{
+    padding: 5px 10px!important;
+    background: #fde458;
+    transition-duration: 0.4s;
+}
+
+.btnHolder .btn:hover{
+    background: #d8c249;
+}
+
+.deatsBtn {
+    border: 1px solid black;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    user-select: none;
+    cursor: pointer;
 }
 
 .btn {
@@ -55,6 +81,7 @@ body{
     background: #D5A103;
     width: 200px;
     margin-bottom: 20px;
+    transition-duration: 0.4s;
 }
 
 #otherBtn:hover{
@@ -72,7 +99,7 @@ body{
     width: 400px;
     border: 1px solid black;
     border-radius: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
     margin-right: 10px;
 }
 
@@ -89,7 +116,11 @@ body{
 }
 
 #displayAssignments {
-    display: none;
+    display: block!important;
+}
+
+#displayAssignmentsBtn{
+    display: none!important;
 }
 
 #addAssignmentForm {

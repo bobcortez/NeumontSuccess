@@ -1,7 +1,7 @@
 const contents = `
   <h2>Assignment Tracker</h2>
   <div class="btn" id="displayAssignmentsBtn">Display Assignments</div>   
-  <div id="displayAssignments">I are Test!</div>
+  <div id="displayAssignments"></div>
 
   <div class="btn" id="addNewAssignment">Add New Assignment</div>   
   <form id="addAssignmentForm">
@@ -16,7 +16,6 @@ const contents = `
         <input type="text" class="reqs">
       </div>
     </label>
-    <br>
     <div class="btn" id="addReq">+ Add Req.</div>   
     <br>
     <div class="btn" id="addAssignment">Add Assignment</div>   
@@ -80,7 +79,7 @@ const addAssignment = () => {
   updateAssignments();
 }
 
-let displayBool = false;
+let displayBool = true;
 const displayAssignments = () => {
   let displayAll = document.getElementById("displayAssignments");
 
@@ -145,12 +144,13 @@ const updateAssignments = () => {
     assignmentHeader.setAttribute("class", "assignmentHeader");
 
     let showDetails = document.createElement("div");
-    showDetails.innerHTML = "Details"
+    showDetails.innerHTML = "Details &#10136;"
     showDetails.id = x;
     showDetails.setAttribute("class", "btn");
+    showDetails.setAttribute("class", "deatsBtn");
     showDetails.addEventListener("click", displayAssignmentDetails);
     
-    let assignmentName = document.createElement("p");
+    let assignmentName = document.createElement("h4");
     assignmentName.innerHTML = assignments[x].name;
 
     let assignmentDue = document.createElement("p");
