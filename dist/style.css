@@ -5,6 +5,7 @@ html, body{
 
 body{
     font-family: 'Roboto', sans-serif;
+    background: #a7a7a7;
 }
 
 #codeFormatter, #assignmentTracker, #main_text{
@@ -100,7 +101,7 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #2C2A2B;
+    background-color: #2C2A2B!important;
     color: white;
 }
 
